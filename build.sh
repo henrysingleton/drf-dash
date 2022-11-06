@@ -20,12 +20,12 @@ mkdir -p build && cd build
 if [ -d django-rest-framework ]; then
   rm -rf django-rest-framework
 fi
-git clone git@github.com:tomchristie/django-rest-framework.git
+git -c advice.detachedHead=false clone git@github.com:encode/django-rest-framework.git --branch ${VERSION} --depth 1
 
 if [ -d Dash-User-Contributions ]; then
   rm -rf Dash-User-Contributions
 fi
-git clone git@github.com:wolfg1969/Dash-User-Contributions.git
+git clone git@github.com:Kapeli/Dash-User-Contributions.git
 
 cd django-rest-framework
 git checkout -b ${VERSION}-docs tags/${VERSION}
