@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import os, re, sqlite3, sys
-from bs4 import BeautifulSoup, NavigableString, Tag
+from bs4 import BeautifulSoup
 
 version = sys.argv[1]
 
