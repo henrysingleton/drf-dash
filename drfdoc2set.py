@@ -25,8 +25,8 @@ docpath = '%s/Contents/Resources/Documents' % docset_path
 page = open(os.path.join(docpath,'index.html')).read()
 soup = BeautifulSoup(page, features="html.parser")
 
-any = re.compile('.*')
-for tag in soup.find_all('a', {'href':any}):
+href = re.compile('.*')
+for tag in soup.find_all('a', {'href': href}):
     name = tag.text.strip()
     if len(name) > 0:
         path = tag.attrs['href'].strip()
