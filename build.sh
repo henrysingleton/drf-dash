@@ -7,7 +7,6 @@ fi
 
 WORKING_DIR=$( cd "$( dirname $0 )" && pwd )
 VERSION=$1
-#DOC_VERSION=${VERSION:0:3}
 DOC_VERSION=$VERSION
 DOCSET_NAME="django-rest-framework-${DOC_VERSION}.docset"
 DOCSET_DIR="Dash-User-Contributions/docsets/Django_REST_Framework"
@@ -36,7 +35,7 @@ echo "use_directory_urls: false" >> mkdocs.yml
 mkdocs build --clean --quiet 2>&1 > /dev/null
 status=$?
 if [ $status -eq 0 ]; then
-  echo "Generate docset......"
+  echo "Generating docset..."
   cd ${WORKING_DIR}/build
   mkdir -p ${DOCSET_NAME}/Contents/Resources/Documents
   cp -Rf django-rest-framework/site/* ${DOCSET_NAME}/Contents/Resources/Documents/
@@ -73,6 +72,6 @@ EOF
     if [ ! -f docsetcontrib.tgz ]; then
       wget http://kapeli.com/feeds/zzz/docsetcontrib.tgz
     fi
-    tar -xzf docsetcontrib.tgz && ./docsetcontrib --verify && echo "docset is good" || echo "verify failed"; exit 1
+    tar -xzf docsetcontrib.tgz && ./docsetcontrib --verify && echo "DocSet verified ✅" || echo "DocSet failed verification ⛔️"; exit 1
   fi
 fi
