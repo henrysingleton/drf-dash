@@ -7,7 +7,7 @@ version = sys.argv[1]
 
 docset_path = 'django-rest-framework-%s.docset' % version
 
-print docset_path
+print(docset_path)
 
 db = sqlite3.connect('%s/Contents/Resources/docSet.dsidx' % docset_path)
 cur = db.cursor()
@@ -37,7 +37,7 @@ for tag in soup.find_all('a', {'href':any}):
                     parts[0] if parts[0][-1] != '/' else parts[0][:-1], parts[1])
                 path = path.replace('/#', '.html#')
             cur.execute('INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)', (name, 'Guide', path))
-            print 'name: %s, path: %s' % (name, path)
+            print(f"name: {name}, path: {path}")
 
 db.commit()
 db.close()
