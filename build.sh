@@ -28,7 +28,7 @@ fi
 git clone git@github.com:Kapeli/Dash-User-Contributions.git
 
 cd django-rest-framework
-git checkout -b ${VERSION}-docs tags/${VERSION}
+git checkout -b ${VERSION}-docs
 
 # force using file urls
 echo "use_directory_urls: false" >> mkdocs.yml
